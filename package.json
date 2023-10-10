@@ -1,0 +1,44 @@
+{
+  "name": "rnstt",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint .",
+    "clean:ios": "yarn cache clean --force && watchman watch-del-all && cd ios && xcodebuild clean && rm -rf ~/Library/Developer/Xcode/DerivedData/* && cd ..",
+    "clean:android": "yarn cache clean --force && watchman watch-del-all && cd android && ./gradlew clean && cd ..",
+    "build:release": "cd android && ./gradlew installRelease && cd ..",
+    "reinstall-all": "yarn reinstall-nodemodules && yarn reinstall-pod",
+    "reinstall-nodemodules": "rm -rf node_modules && rm -rf yarn.lock && yarn install",
+    "reinstall-pod": "cd ios && rm -rf Pods && rm -rf Podfile.lock && pod install --repo-update && cd .."
+  },
+  "dependencies": {
+    "@gorhom/bottom-sheet": "^4",
+    "@react-native-async-storage/async-storage": "^1.19.2",
+    "@react-native-voice/voice": "^3.2.4",
+    "axios": "^1.4.0",
+    "moment": "^2.29.4",
+    "react": "17.0.2",
+    "react-native": "0.66.5",
+    "react-native-gesture-handler": "2.4.0",
+    "react-native-gifted-chat": "^2.4.0",
+    "react-native-reanimated": "^2.6.0",
+    "react-native-tts": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "7.14.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "react-test-renderer": "17.0.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
